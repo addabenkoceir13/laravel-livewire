@@ -7,6 +7,13 @@
     <title>Livewire Crash Course</title>
 </head>
 <body>
-    <livewire:bird-form :count="2025" />
+    <div>
+        Send event
+        <livewire:send-event>
+    </div>
+    <div>
+        Receive event
+        <livewire:receive-event>
+    </div>
 </body>
 </html>
