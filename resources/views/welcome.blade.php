@@ -7,13 +7,6 @@
     <title>Livewire Crash Course</title>
 </head>
 <body>
-    <div>
-        Send event
-        <livewire:send-event>
-    </div>
-    <div>
-        Receive event
-        <livewire:receive-event>
-    </div>
+    <livewire:lazy />
 </body>
 </html>
