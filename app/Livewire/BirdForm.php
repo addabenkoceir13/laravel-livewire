@@ -25,7 +25,7 @@ class BirdForm extends Component
         $this->reset();
     }
 
-    public function mount($count)
+    public function mount($count = 0)
     {
         // Initialize any properties if needed
         $this->count = $count;
@@ -33,6 +33,12 @@ class BirdForm extends Component
 
         // $this->entries = Entry::all();
     }
+
+    public function deleteEntry($id)
+    {
+        Entry::findOrFail($id)->delete();
+    }
+
     public function render()
     {
         return view('livewire.bird-form', ['entries' => Entry::all()]);

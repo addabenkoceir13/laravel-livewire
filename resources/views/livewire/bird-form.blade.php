@@ -20,14 +20,30 @@
         @endforeach
     </div>
     <div>
-        @forelse ($entries as $item)
-            <div>
-                <p>Count: {{ $item->count }}</p>
-                <p>Notes: {{ $item->notes }}</p>
-            </div>
-        @empty
-            <p>No entries found.</p>
-        @endforelse
+        <table>
+            <thead>
+                <tr>
+                    <th>Count</th>
+                    <th>Notes</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($entries as $item)
+                    <tr wire:key="{{ $item->id }}" wire:transition>
+                        <td>{{ $item->count }}</td>
+                        <td>{{ $item->notes }}</td>
+                        <td>
+                            <button wire:click="deleteEntry({{ $item->id }})">Delete</button>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="3">No entries found.</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
     </div>
 
 </div>
